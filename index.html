@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Name App</title>
+    <style>
+      *{font-size: 50px;
+        font-family: 'Times New Roman', Times, serif;}
+      body{background-color: #f4f4f4;}
+    </style>
+  </head>
+  <body>  
+    <center>
+     <h1>Name App</h1>
+     <form onsubmit="show()">
+      <input type="text" placeholder="Enter your name" id="name"/>
+      <br><br>
+      <input type="submit"/>
+     </form>
+     <h2 id="msg" />
+
+     <script>
+      function show(){
+        event.preventDefault();
+        let name=document.getElementById("name");
+        let msg=document.getElementById("msg");
+        
+        if(name.value===""){
+          alert("Please enter your name")
+          msg.innerHTML="";
+          name.focus();
+          return;
+        }
+
+        let d = new Date();
+        let hr = d.getHours();
+        if(hr<12)
+        msg.innerHTML="Good Morning "+name.value;
+        else if(hr<16)
+        msg.innerHTML="Good Afternoon"+name.value;
+        else 
+         msg.innerHTML="Good Evening"+name.value;
+      }
+     </script>
+    </center>
+  </body>
+</html>
